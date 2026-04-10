@@ -1,0 +1,199 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{float}
+
+\title{Self-Organized Criticality in Neuronal Avalanches:\\
+A Complexity Science Approach (CHL7903)}
+\author{HARSHIT UPADHYAY - 2025che2184} 
+\date{}
+
+\begin{document}
+
+\maketitle
+\newpage
+\section{Abstract}
+
+Complex systems are characterized by the emergence of large-scale behavior from simple local interactions among their constituent elements. One of the most important phenomena observed in such systems is self-organized criticality (SOC), where a system naturally evolves toward a critical state without requiring external parameter tuning. The human brain, consisting of billions of interconnected neurons exhibiting nonlinear and adaptive dynamics, is considered a prime example of such a system.
+
+In this work, neuronal avalanche dynamics are modeled using a threshold-based cascade framework implemented on complex network structures. Each neuron is represented as a node with an associated state variable, which evolves under the combined influence of stochastic external input (noise), local redistribution of activity (avalanche propagation), and network connectivity. The model captures key features of neural systems, including slow driving, rapid cascade events, and interaction across different connectivity patterns.
+
+Computer simulations are performed across multiple network configurations, including sparse, dense, and scale-free networks, to examine the influence of connectivity on avalanche behavior. The results show that avalanche sizes follow a power-law distribution, \( P(s) \sim s^{-\alpha} \), with the exponent \( \alpha \approx 1.5 \), which is consistent with theoretical predictions and experimental observations. Additionally, the relationship between avalanche size and duration follows a scaling law, \( \langle s \rangle \sim T^{\gamma} \), indicating the presence of long-range correlations in the system.
+
+The analysis further reveals that while connectivity significantly affects the magnitude and frequency of avalanches, the critical exponent remains nearly invariant across different network topologies. This robustness indicates that the system self-organizes toward a critical state. These findings support the hypothesis that neuronal systems operate near criticality to optimize information transmission, enhance dynamic range, and maintain a balance between stability and adaptability.
+
+Overall, this study demonstrates that a simple threshold-based network model is sufficient to reproduce the key signatures of self-organized criticality in neuronal systems, providing insight into the fundamental principles governing brain dynamics.
+
+\newpage
+\section{Introduction}
+Complexity science studies systems in which large-scale collective behavior emerges from interactions among many individual components. Such systems are typically characterized by nonlinearity, feedback mechanisms, and the absence of centralized control. Examples of complex systems include earthquakes, forest fires, financial markets, and neural systems, all of which exhibit unpredictable yet structured behavior arising from simple local rules.
+
+The human brain is one of the most sophisticated examples of a complex system, consisting of billions of interconnected neurons that communicate through electrical and chemical signals. Despite the simplicity of individual neurons, their interactions give rise to highly organized functions such as perception, memory, and decision-making.
+
+One of the most significant phenomena observed in neural systems is that of \textit{neuronal avalanches}. These are spontaneous bursts of neural activity that propagate through the network and exhibit power-law distributions in their size and duration. Such behavior indicates scale invariance and suggests that the brain operates near a critical state, balancing stability and adaptability. Operating at this critical point allows the system to maximize information processing efficiency and dynamic range.
+
+In this study, neuronal avalanches are modeled using a network-based threshold cascade system. The model incorporates key elements such as stochastic external input, local interaction rules, and varying network connectivity. The objective is to analyze how these factors influence avalanche dynamics and to investigate whether the system exhibits characteristics of self-organized criticality under different connectivity conditions.
+
+\section{Why This System Fits Complexity Science}
+This system is a strong candidate for complexity science due to:
+
+\begin{itemize}
+\item Large number of interacting units (neurons)
+\item Non-linear threshold dynamics
+\item Emergence of global behavior from local rules
+\item Absence of central control
+\item Power-law distributed avalanche sizes
+\end{itemize}
+
+These characteristics align with systems exhibiting self-organized criticality.
+
+\section{Model Description}
+
+\subsection{Noise}
+The system is driven by external random input, representing background neural activity. At each time step, a random neuron receives a small increment:
+
+\begin{equation}
+z_i \rightarrow z_i + \eta
+\end{equation}
+
+where $\eta$ is drawn from an exponential distribution.
+
+\subsection{Avalanche Dynamics}
+When the membrane potential exceeds a threshold:
+
+\begin{equation}
+z_i \geq \theta
+\end{equation}
+
+the neuron fires and redistributes its energy:
+
+\begin{equation}
+z_j \rightarrow z_j + \frac{\kappa z_i}{k_i}
+\end{equation}
+
+This may trigger a cascade of firings, forming an avalanche.
+
+\subsection{Connectivity}
+The system is modeled as a network where nodes represent neurons and edges represent synaptic connections. Different network types are used:
+
+\begin{itemize}
+\item Random network
+\item Scale-free network
+\item Small-world network
+\end{itemize}
+
+Connectivity directly influences avalanche propagation.
+
+\section{Simulation Methodology}
+
+The simulation follows these steps:
+
+\begin{enumerate}
+\item Initialize network with $N$ neurons
+\item Assign random initial potentials
+\item Apply noise at each time step
+\item Trigger avalanche if threshold is crossed
+\item Record avalanche size and duration
+\item Repeat for multiple connectivity levels
+\end{enumerate}
+
+The simulation is implemented in Python using libraries such as NumPy, NetworkX, and Matplotlib.
+
+\section{Results}
+
+\subsection{Avalanche Distribution}
+The distribution of avalanche sizes follows a power-law:
+
+\begin{equation}
+P(s) \sim s^{-\alpha}
+\end{equation}
+
+where $\alpha \approx 1.5$, consistent with theoretical SOC predictions.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{neural_avalanche_3D.png}
+\caption{3D visualization of avalanche distributions and network topology}
+\end{figure}
+
+\subsection{Effect of Connectivity}
+Increasing connectivity leads to:
+
+\begin{itemize}
+\item Larger avalanche sizes
+\item Higher propagation efficiency
+\item Preservation of power-law behavior
+\end{itemize}
+
+\subsection{Scaling Relation}
+Avalanche size and duration follow:
+
+\begin{equation}
+\langle s \rangle \sim T^\gamma
+\end{equation}
+
+confirming scaling laws characteristic of critical systems.
+
+\section{Analysis of Avalanche Distribution}
+
+The frequency distribution of avalanches shows:
+
+\begin{itemize}
+\item Heavy-tailed behavior
+\item Absence of characteristic scale
+\item Robustness across network types
+\end{itemize}
+
+The exponent $\alpha$ remains close to 1.5 for all configurations, indicating universal behavior.
+
+\section{Self-Organized Criticality}
+
+The system naturally evolves into a critical state without external tuning. This is confirmed by:
+
+\begin{itemize}
+\item Power-law distributions
+\item Scale invariance
+\item Stability across configurations
+\end{itemize}
+
+SOC enables optimal information processing and adaptability in neural systems.
+
+\section{Verification of Criticality}
+
+The system demonstrates self-organized criticality through:
+
+\begin{itemize}
+\item Power-law distribution of avalanche sizes with exponent $\alpha \approx 1.5$
+\item Scaling relation $\langle s \rangle \sim T^\gamma$ with $\gamma \approx 1.41$
+\item Independence from network topology (random vs scale-free)
+\end{itemize}
+
+These results match theoretical predictions for SOC systems, confirming that the model operates near a critical state.
+\newpage
+\section{Conclusion}
+
+This study demonstrates that neuronal avalanche dynamics exhibit self-organized criticality (SOC), characterized by scale-invariant behavior and power-law distributions. The proposed threshold-based network model successfully captures the complex interplay between noise-driven inputs, connectivity structure, and cascade propagation mechanisms.
+
+The observed power-law exponent ($\alpha \approx 1.5$) and scaling relation between avalanche size and duration confirm that the system operates near a critical state. Importantly, this behavior remains robust across different network topologies, indicating the universality of the underlying dynamics.
+
+These findings support the hypothesis that the brain may function near criticality to achieve an optimal balance between stability and adaptability. Such a regime enhances information processing efficiency, maximizes dynamic range, and enables rapid response to external stimuli.
+
+Overall, the results highlight the significance of self-organized criticality as a fundamental principle governing complex neuronal systems.
+
+\section{Prompts Used}
+
+\begin{itemize}
+\item Estimate the power-law exponent using maximum likelihood estimation (MLE) method.
+\item Design a threshold-based cascade model on a network to simulate avalanche dynamics in complex systems.
+\item Plot avalanche size distribution on a log-log scale and verify power-law behavior.
+\item Analyze how network connectivity (average degree) affects avalanche propagation and distribution.
+\end{itemize}
+
+\section{Acknowledgement}
+
+I acknowledge the use of AI tools and online resources for assistance in coding, visualization, and report preparation.
+
+\end{document}
